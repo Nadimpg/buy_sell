@@ -1,4 +1,6 @@
+import 'package:buy_sellapp/UI/views/auth/forget_password.dart';
 import 'package:buy_sellapp/UI/views/auth/login_screen/login_screen.dart';
+import 'package:buy_sellapp/UI/views/auth/login_screen/registration.dart';
 import 'package:buy_sellapp/UI/views/splash_screen/splash_screen.dart';
 import 'package:buy_sellapp/UI/views/unknown_screen/unknown_screen.dart';
 import 'package:get/get.dart';
@@ -9,10 +11,14 @@ const String splash = '/splash_screen';
 const String unknown = '/not_found';
 const String onboard = '/onboard';
 const String login = '/Login';
+const String registration = '/registration';
+const String forgetpass = '/forgetpass';
 
 List<GetPage> getPages = [
   GetPage(name: unknown, page: () => Unknown()),
   GetPage(name: splash, page: () => const SplashScreen()),
   GetPage(name: onboard, page: () => OnboardingScreen()),
-  GetPage(name: login, page: () => LogInScreen())
-];
+  GetPage(name: login, page: () => LogInScreen()),
+  GetPage(name: registration, page: ()=>Registration()),
+  GetPage(name: forgetpass, page: ()=>ForgetPassword())
+]; 

@@ -2,7 +2,7 @@ import 'package:buy_sellapp/Const/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-Widget customButton(
+ElevatedButton customButton(
   String title,
   onPressed,
 ) {

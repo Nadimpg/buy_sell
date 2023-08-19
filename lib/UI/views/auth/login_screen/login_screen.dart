@@ -13,24 +13,11 @@ class _LogInScreenState extends State<LogInScreen> {
     return Scaffold(
       body: Column(
         children: [
-          cust(
-              TextInputType.emailAddress,
-              'hint',
-              Text(
-                'data',
-              ))
+         
         ],
       ),
     );
   }
 
-  TextField cust(keyboard, hint, label) {
-    return TextField(
-      keyboardType: keyboard,
-      decoration: InputDecoration(
-          hintText: hint,
-          label: label,
-          hintStyle: TextStyle(color: Colors.red)),
-    );
-  }
+    
 }
