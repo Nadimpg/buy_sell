@@ -18,7 +18,7 @@ List<GetPage> getPages = [
   GetPage(name: unknown, page: () => Unknown()),
   GetPage(name: splash, page: () => const SplashScreen()),
   GetPage(name: onboard, page: () => OnboardingScreen()),
-  GetPage(name: login, page: () => LogInScreen()),
+  
   GetPage(name: registration, page: ()=>Registration()),
   GetPage(name: forgetpass, page: ()=>ForgetPassword())
 ]; 
