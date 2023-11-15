@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "125599456289",
+    "project_id": "buy-sell-app-84b23",
+    "storage_bucket": "buy-sell-app-84b23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125599456289:android:5735c7aa9fa17d2ebe5760",
+        "android_client_info": {
+          "package_name": "com.example.buy_sellapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQB2eh7jEvaElEkdwLaIHraiTUeN4M7pU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,11 +2,14 @@ import 'package:buy_sellapp/Const/app_strings.dart';
 import 'package:buy_sellapp/UI/route/route.dart';
 import 'package:buy_sellapp/UI/theme/theme.dart';
 import 'package:buy_sellapp/UI/views/splash_screen/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
-void main() {
+void main()async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

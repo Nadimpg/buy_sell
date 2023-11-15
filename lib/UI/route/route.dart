@@ -1,6 +1,6 @@
 import 'package:buy_sellapp/UI/views/auth/forget_password.dart';
-import 'package:buy_sellapp/UI/views/auth/login_screen/login_screen.dart';
-import 'package:buy_sellapp/UI/views/auth/login_screen/registration.dart';
+import 'package:buy_sellapp/UI/views/auth/login_screen.dart';
+import 'package:buy_sellapp/UI/views/auth/registration.dart';
 import 'package:buy_sellapp/UI/views/splash_screen/splash_screen.dart';
 import 'package:buy_sellapp/UI/views/unknown_screen/unknown_screen.dart';
 import 'package:get/get.dart';
