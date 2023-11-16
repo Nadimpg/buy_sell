@@ -11,7 +11,7 @@ class AppStyles {
             elevation: 0,
             backgroundColor: Colors.transparent,
             child: Image.asset(
-              'assets/files/loading.gif',
+              'assets/file/loading.gif',
               height: 150,
             ),
           );
@@ -22,16 +22,16 @@ class AppStyles {
   GetSnackBar failedSnacBar(message)=> GetSnackBar(
     message: message,
     backgroundColor: Colors.redAccent,
-    duration: Duration(seconds: 2),
-    icon: Icon(Icons.warning),
+    duration: const Duration(seconds: 2),
+    icon: const Icon(Icons.warning),
   );
 
 //success snackbar
   GetSnackBar successSnacBar(message)=> GetSnackBar(
     message: message,
-    backgroundColor: Colors.greenAccent,
-    duration: Duration(seconds: 2),
-    icon: Icon(Icons.assignment_turned_in),
+    backgroundColor: Colors.green,
+    duration: const Duration(seconds: 2),
+    icon: const Icon(Icons.assignment_turned_in),
   );
 
 

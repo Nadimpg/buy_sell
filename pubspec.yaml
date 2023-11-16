@@ -43,6 +43,7 @@ dependencies:
   firebase_core: ^2.15.1
   salomon_bottom_bar: ^3.3.2
   cloud_firestore:
+  get_storage:
 
 dev_dependencies:
   flutter_test:
