@@ -41,6 +41,8 @@ dependencies:
   flutter_svg:
   firebase_auth: ^4.8.0
   firebase_core: ^2.15.1
+  salomon_bottom_bar: ^3.3.2
+  cloud_firestore:
 
 dev_dependencies:
   flutter_test:
@@ -55,7 +57,8 @@ dev_dependencies:
   google_fonts: ^5.1.0
   flutter_screenutil: ^5.8.4
   get: ^4.6.5
-  intro_screen_onboarding_flutter: ^1.0.0 
+  intro_screen_onboarding_flutter: ^1.0.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -72,6 +75,7 @@ flutter:
   assets:
     - assets/images/
     - assets/logos/
+    - assets/file/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
