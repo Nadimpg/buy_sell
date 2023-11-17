@@ -1,6 +1,7 @@
 import 'package:buy_sellapp/UI/responsive/size_config.dart';
 import 'package:buy_sellapp/UI/widgets/custom_button.dart';
 import 'package:buy_sellapp/UI/widgets/custom_text_field.dart';
+import 'package:buy_sellapp/business_logic/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -66,12 +67,12 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                           child: customButton(
                             'Continue',
                                 () {
-                             /* if (_formKey.currentState!.validate()) {
+                              if (_formKey.currentState!.validate()) {
                                 Get.find<AuthController>().forgetPassword(
                                     _emailController.text.trim(), context);
                               } else {
                                 print('failed');
-                              }*/
+                              }
                             },
                           )),
                     ],

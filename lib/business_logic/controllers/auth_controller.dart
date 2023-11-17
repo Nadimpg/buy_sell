@@ -9,6 +9,7 @@ class AuthController extends GetxController{
 
  final FirebaseAuth _auth = FirebaseAuth.instance;
  final box = GetStorage();
+ /// <----------- SignUp ---------->
   signup(name,email,password,context)async{
     AppStyles().progressDialog(context);
     try {
@@ -19,7 +20,7 @@ class AuthController extends GetxController{
 
       if(credential.user!.uid.isNotEmpty){
         CollectionReference collectionReference=FirebaseFirestore.instance.collection('users');
-        collectionReference.doc('email').set({
+        collectionReference.doc(credential.user!.uid).set({
           'uid':credential.user!.uid,
           'email':email,
           'name':name
@@ -49,88 +50,67 @@ class AuthController extends GetxController{
     }
   }
 
-  /*login(email,password,context)async{
+  /// <------------ Login ----------->
+  login(email, password, context) async {
     AppStyles().progressDialog(context);
     try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: email,
-          password: password
-      );
-      if(credential.user!.uid.isNotEmpty) {
-        FirebaseFirestore.instance.collection('users').doc(email).get().then((DocumentSnapshot <Map<String,dynamic>> doc){
-          if(doc.exists){
-            var data=doc.data();
+      final credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      if (credential.user!.uid.isNotEmpty) {
+        FirebaseFirestore.instance
+            .collection('users')
+            .doc(credential.user!.uid)
+            .get()
+            .then((DocumentSnapshot<Map<String, dynamic>> doc) {
+          if (doc.exists) {
+            var data = doc.data();
             print(data);
-            Map user={
-              'uid':data!['uid'],
-              'email':data['email'],
-              'name':data['name']
+            Map user = {
+              'uid': data!['uid'],
+              'email': data['email'],
+              'name': data['name']
             };
             box.write('user', user);
             print(user);
             Get.back();
             Get.offAndToNamed(bottomNavController);
-            Get.showSnackbar(AppStyles().successSnacBar('Login successfully'));
-          }
-          else{
-            Get.showSnackbar(AppStyles().failedSnacBar('document does not exist on the database'));
+            Get.showSnackbar(AppStyles().successSnacBar('Login successfull'));
+          } else {
+            Get.showSnackbar(AppStyles()
+                .failedSnacBar('document does not exist on the database.'));
           }
         });
       }
-
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         Get.back();
-        Get.showSnackbar(AppStyles().failedSnacBar('No user found for that email.'));
+        Get.showSnackbar(
+            AppStyles().failedSnacBar('No user found for that email.'));
       } else if (e.code == 'wrong-password') {
         Get.back();
-        Get.showSnackbar(AppStyles().failedSnacBar('Wrong password provided for that user.'));
+        Get.showSnackbar(AppStyles()
+            .failedSnacBar('Wrong password provided for that user.'));
       }
     }
-  }*/
- login(email, password, context) async {
-   AppStyles().progressDialog(context);
-   try {
-     final credential = await FirebaseAuth.instance
-         .signInWithEmailAndPassword(email: email, password: password);
-     if (credential.user!.uid.isNotEmpty) {
-       FirebaseFirestore.instance
-           .collection('users')
-           .doc(email)
-           .get()
-           .then((DocumentSnapshot<Map<String, dynamic>> doc) {
-         if (doc.exists) {
-           var data = doc.data();
-           print(data);
-           Map user = {
-             'uid': data!['uid'],
-             'email': data['email'],
-             'name': data['name']
-           };
-           box.write('user', user);
-           print(user);
-           Get.back();
-           Get.offAndToNamed(bottomNavController);
-           Get.showSnackbar(AppStyles().successSnacBar('Login Successfully'));
-         } else {
-           Get.showSnackbar(AppStyles()
-               .failedSnacBar('document does not exist on the database.'));
-         }
-       });
-     }
-   } on FirebaseAuthException catch (e) {
-     if (e.code == 'user-not-found') {
-       Get.back();
-       Get.showSnackbar(
-           AppStyles().failedSnacBar('No user found for that email.'));
-     } else if (e.code == 'wrong-password') {
-       Get.back();
-       Get.showSnackbar(AppStyles()
-           .failedSnacBar('Wrong password provided for that user.'));
-     }
-   }
- }
-  forgetPassword()async{}
-  logOut()async{}
+  }
+
+  /// <------------ Forget Password ------------>
+  forgetPassword(email,context)async{
+    try{
+      AppStyles().progressDialog(context);
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      Get.back();
+      Get.showSnackbar(AppStyles().successSnacBar('email has been successfully'));
+    }catch(e){
+      Get.showSnackbar(AppStyles()
+          .failedSnacBar('Something is wrong'));
+      print(e);
+    }
+  }
+
+  /// <-------- LogOut --------->
+  logOut()async{
+    _auth.signOut();
+  }
 
 }

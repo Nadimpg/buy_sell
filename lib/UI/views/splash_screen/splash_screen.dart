@@ -1,6 +1,31 @@
 import 'dart:async';
 
 import 'package:buy_sellapp/UI/responsive/size_config.dart';
+import 'package:buy_sellapp/UI/views/onboarding_screen/onboarding_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+
+    SizeConfig().init(context);
+    return Scaffold(
+      body: Center(
+        child: Image.asset(
+          'assets/logos/logo.png',
+          width: 100.w,
+        ),
+      ),
+    );
+  }
+}
+
+/*import 'dart:async';
+
+import 'package:buy_sellapp/UI/responsive/size_config.dart';
 import 'package:buy_sellapp/UI/route/route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,4 +57,4 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
-}
+}*/

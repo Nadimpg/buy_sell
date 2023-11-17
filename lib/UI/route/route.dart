@@ -9,6 +9,7 @@ import 'package:buy_sellapp/UI/views/profile/profile_screen.dart';
 import 'package:buy_sellapp/UI/views/splash_screen/splash_screen.dart';
 import 'package:buy_sellapp/UI/views/unknown_screen/unknown_screen.dart';
 import 'package:buy_sellapp/business_logic/bindings/auth_binding.dart';
+import 'package:buy_sellapp/business_logic/bindings/splash_binding.dart';
 import 'package:get/get.dart';
 
 import '../views/onboarding_screen/onboarding_screen.dart';
@@ -27,15 +28,14 @@ const String profileScreen = '/profile_screen';
 
 List<GetPage> getPages = [
   GetPage(name: unknown, page: () => const Unknown()),
-  GetPage(name: splash, page: () => const SplashScreen()),
+  GetPage(name: splash, page: () => const SplashScreen(),binding: SplashBinding()),
   GetPage(name: onboard, page: () => const OnboardingScreen()),
-  
   GetPage(
       name: registration,
       page: ()=>const Registration(),
       binding: AuthBinding()
   ),
-  GetPage(name: forgetPass, page: ()=>const ForgetPassword()),
+  GetPage(name: forgetPass, page: ()=>const ForgetPassword(),binding: AuthBinding()),
   GetPage(
       name: login,
       page: ()=>const LoginScreen(),
