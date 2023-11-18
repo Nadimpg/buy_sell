@@ -1,3 +1,4 @@
+import 'package:buy_sellapp/Model/products.dart';
 import 'package:buy_sellapp/Model/user_profile.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -5,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class FireStoreDB {
-  var box = GetStorage();
+  List<Product> product=[];
   FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
 
   Future<UserProfile> getUserProfile() async {
@@ -21,5 +22,13 @@ class FireStoreDB {
   Future<void> userProfileUpdate(UserProfile user)async{
 
     await _firebaseFirestore.collection('users').doc(user.uid).update(user.toJson()).then((value) => Get.snackbar('Success','Update Success'));
+  }
+
+  ///<-------homescreen getProducts -------------->
+  Future<List<Product>> getProducts() async {
+    final snapshot = await _firebaseFirestore.collection('products').get();
+    final productData =
+    snapshot.docs.map((e) => Product.fromSnapshot(e)).toList();
+    return productData;
   }
 }

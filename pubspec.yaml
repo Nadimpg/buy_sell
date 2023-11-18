@@ -44,6 +44,7 @@ dependencies:
   salomon_bottom_bar: ^3.3.2
   cloud_firestore:
   get_storage:
+  cached_network_image: ^3.3.0
 
 dev_dependencies:
   flutter_test:
